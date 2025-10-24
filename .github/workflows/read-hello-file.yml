@@ -1,0 +1,26 @@
+name: Read hello.txt
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  read-hello-file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Read hello.txt content
+        id: read_file
+        run: |
+          if [ -f hello.txt ]; then
+            content=$(cat hello.txt)
+            echo "file_content=$content" >> $GITHUB_ENV
+          else
+            echo "hello.txt not found!" >> $GITHUB_ENV
+          fi
+
+      - name: Display file content
+        run: echo "Content of hello.txt: ${{ env.file_content }}"
