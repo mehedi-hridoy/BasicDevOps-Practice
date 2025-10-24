@@ -11,7 +11,8 @@ This repository contains small exercises and experiments for practicing DevOps s
 
 ## Goals
 
-- Learn and practice core DevOps workflows (build, test, deploy).
-- Explore containerization (Docker), orchestration (Kubernetes), and IaC tools (Terraform, Ansible).
-- Create reproducible examples that can be used as references.
+
+## CI/CD
+
+A minimal GitHub Actions workflow exists at `.github/workflows/read-hello-file.yml`. It triggers on pushes to `main` and runs a job that prints the contents of `hello.txt`.
 
