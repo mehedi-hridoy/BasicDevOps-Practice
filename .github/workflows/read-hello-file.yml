@@ -17,10 +17,10 @@ jobs:
         run: |
           if [ -f hello.txt ]; then
             content=$(cat hello.txt)
-            echo "file_content=$content" >> $GITHUB_ENV
+            echo "file_content=$content" >> $GITHUB_ENV  # Set the file content as an environment variable
           else
-            echo "hello.txt not found!" >> $GITHUB_ENV
+            echo "hello.txt not found!" >> $GITHUB_ENV  # Fallback if the file is missing
           fi
 
       - name: Display file content
-        run: echo "Content of hello.txt: ${{ env.file_content }}"
+        run: echo "Content of hello.txt: ${{ env.file_content }}"  # Correctly reference the env variable
